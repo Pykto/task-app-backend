@@ -1,9 +1,10 @@
 
 # API REST para Gestión de Tareas
 
+Este es el backend de la aplicación de gestión de tareas, construido con FLask + SQLAlchemy + Marshmallow.
+
 ## Estructura del Proyecto
 
-A continuación, se describe la estructura de los archivos y directorios principales del proyecto:
 ```
 ├── app/
 │   ├── init.py             # Inicialización de la aplicación Flask
@@ -19,8 +20,6 @@ A continuación, se describe la estructura de los archivos y directorios princip
 ```
 
 ## Comandos para Correr la API
-
-A continuación, se detallan los pasos para configurar y ejecutar la API REST en tu entorno local:
 
 1.  **Clonar el Repositorio:**
 
@@ -66,8 +65,6 @@ A continuación, se detallan los pasos para configurar y ejecutar la API REST en
     ```
 
 ## Endpoints de la API
-
-A continuación, se listan los endpoints principales de la API:
 
 * **`POST /tareas`**: Crea una nueva tarea.
     * **Cuerpo de la Solicitud (JSON):**
@@ -144,4 +141,6 @@ A continuación, se listan los endpoints principales de la API:
         ```
     * **Respuesta (JSON - 404 Not Found):** Si la tarea con el ID especificado no existe.
 
----
+## Notas Adicionales
+
+* Asegurar de que el servidor de MySQL esté en ejecución y configurado en las variables de entorno.
