@@ -1,8 +1,10 @@
 import os
-from flask import Flask
+from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 from sqlalchemy.exc import OperationalError
+from flask_cors import CORS
+from werkzeug.exceptions import NotFound
 
 load_dotenv()
 
@@ -11,6 +13,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{os.getenv('DATABASE_USER')}:{
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+# TODO add domain 
+CORS(app)
+
+@app.errorhandler(NotFound)
+def not_found(e):
+    return jsonify({"error": "Tarea no encontrada"}), 404
 
 with app.app_context():
     try:
