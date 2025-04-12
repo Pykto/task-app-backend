@@ -27,7 +27,6 @@ def populate_database(num_tasks=20):
         description = f"Description {i}"
         priority = random.choice(priorities)
         state = random.choice(states)
-        creation_date = datetime.now().isoformat()
         expiration_date = generate_random_date(start_date, end_date) if random.random() < 0.8 else None # 80% chance of having an expiration date
 
         task_data = {
@@ -35,7 +34,6 @@ def populate_database(num_tasks=20):
             "description": description,
             "priority": priority,
             "state": state,
-            "creation_date": creation_date,
             "expiration_date": expiration_date
         }
 
