@@ -13,12 +13,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{os.getenv('DATABASE_USER')}:{
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-# TODO add domain 
 CORS(app)
 
 @app.errorhandler(NotFound)
 def not_found(e):
-    return jsonify({"error": "Tarea no encontrada"}), 404
+    return jsonify({"error": "Task not found"}), 404
 
 with app.app_context():
     try:
